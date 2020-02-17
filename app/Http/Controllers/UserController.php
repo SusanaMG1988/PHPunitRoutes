@@ -27,14 +27,14 @@ class UserController extends Controller
         // return view('users'->with('users',$users)
         //                    ->with('title',$title);
 
-        return view('users', compact('title',$users));
+        return view('users.index', compact('title','users'));
 
       
 
     }
 
     public function show($id){
-        return view('users-show',['id'=> $id]);
+        return view('users.show',['id'=> $id]);
     }
     public function create(){
         return 'Crear un nuevo Usuario';

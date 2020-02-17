@@ -16,6 +16,7 @@
 // });
 
 ///////////////////////////////区切り///////////////////////////////////////////////
+
 Route::get('/', function(){
     return 'Home';
 });
@@ -26,16 +27,13 @@ Route::get('/usuarios','UserController@index');
 //Route::get('/Usuarios/detalles', function(){
     //return 'Mostrando el detalle del usuario'.$_GET('id');
 // });
+
 Route::get('/usuarios/nuevo','UserController@create');
+
 Route::get('/usuarios/{id}', 'UserController@show')->where('id', '[0-9]+');
 
+Route::get('/pasteles', 'pastelController@show');
 
+Route::get('/saludo/{name}/{nickname?}','WelcomeController');
+  
 
-Route::get('/saludo/{name}/{nickname?}',function($name, $nickname = null){
-    if($nickname){
-        return "Bienvenido {$name}, tu apodo es {$nickname}";
-    }else{
-        return "Bienvenido {$name}, no tienes apodo";
-    }
-    
-});

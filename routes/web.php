@@ -26,5 +26,6 @@ Route::get('/pasteles', 'PastelController@index');
 Route::get('/pasteles/{id}', 'PastelController@show')->where('id', '[0-9 ]+');
 
 Route::get('articulos', function(){
-    return view('articulos.index',['articulos'=>Article::all()]);
+    $articulos=['articulos'=>Article::all()];
+    return view('articulos.index', $articulos);
 });

@@ -13,10 +13,8 @@ class pasteles extends Seeder
     {
         for($i = 0; $i<10; $i++){
             Article::Create([
-                'sabor'=> 'Fresa',
-                'sabor'=> 'Vainilla',
-                'sabor'=> 'Penne',
-                'sbor' => 'Roquefort'
+               
+                
             ]);
         }
     }

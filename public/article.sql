@@ -6,6 +6,7 @@ CREATE TABLE articles(
 
 INSERT INTO articles (id, titulo, cuerpo, autor)
 VALUES
-(1, 'Probanddodd'),
-(2, 'Primero'),
-(3, 'TERCERO');
+(null, 'titulo_1','Cuerpo articulo_1','autor'),
+(null, 'titulo_2','Cuerpo articulo_2','autor'),
+(null, 'titulo_3','Cuerpo articulo_3','autor');
+

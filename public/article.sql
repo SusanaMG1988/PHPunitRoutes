@@ -4,7 +4,7 @@ CREATE TABLE articles(
     PRIMARY KEY (id)
 );
 
-INSERT INTO articles (id, name)
+INSERT INTO articles (id, titulo, cuerpo, autor)
 VALUES
 (1, 'Probanddodd'),
 (2, 'Primero'),

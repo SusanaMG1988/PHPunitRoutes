@@ -1,39 +1,30 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-#muestra el inicio de laravel, home predeterminado el cual te lleva a la documentación entre otrod
-// Route::get('/', function () {
-//     return view('welcome');
+use App\Article;
+
+Route::get('/', function (){
+    return view('home');
+})->name('inicio');
+
+Route::get('/usuarios', 'UserController@index')->name('users');
+
+// Route::get('/usuarios/detalles', function (){
+//     return 'Mostrando el detalle del usuario'.$_GET['id'];
+
 // });
 
-///////////////////////////////区切り///////////////////////////////////////////////
+Route::get('/usuarios/nuevo','UserController@create')->name('new_user');
 
-Route::get('/', function(){
-    return 'Home';
-});
+Route::get('/usuarios/{id}', 'UserController@show')->where('id', '[0-9]+')->name('detalle_user');
 
-
-Route::get('/usuarios','UserController@index');
- 
-//Route::get('/Usuarios/detalles', function(){
-    //return 'Mostrando el detalle del usuario'.$_GET('id');
-// });
-
-Route::get('/usuarios/nuevo','UserController@create');
-
-Route::get('/usuarios/{id}', 'UserController@show')->where('id', '[0-9]+');
-
-Route::get('/pasteles', 'pastelController@show');
+Route::get('/usuarios/{id}/edit', 'UserController@edit')->where('id', '[0-9]+');
 
 Route::get('/saludo/{name}/{nickname?}','WelcomeController');
-  
 
+Route::get('/pasteles', 'PastelController@index');
+
+Route::get('/pasteles/{id}', 'PastelController@show')->where('id', '[0-9 ]+');
+
+Route::get('articulos', function(){
+    return view('articulos.index',['articulos'=>Article::all()]);
+});

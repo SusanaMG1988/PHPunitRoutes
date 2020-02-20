@@ -1,4 +1,3 @@
-{{-- @include('header'); --}}
 @extends('layout')
 
 @section('title',"Listado de usuarios")
@@ -18,4 +17,3 @@
     @parent
         <h2>Barra lateral personalizada</h2>
 @endsection
-{{-- @include('footer'); --}}

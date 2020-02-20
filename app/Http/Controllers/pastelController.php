@@ -1,14 +1,19 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\http\Request;
+use Illuminate\Http\Request;
 
-Class PastelController extends Controller
+class PastelController extends Controller
 {
-    public function show(){
-        $pasteles= ['tarta de queso','duquesa','tiramisu'];
-        return view('pasteles.show')->with('pasteles', $pasteles);
+    public function index(){
+         $pasteles = ['tiramisu', 'brouny', 'croasan'];
+
+        return view('pasteles.index')->with('pasteles', $pasteles);
+    }
+
+    public function show($id)
+    {
+        return view('pasteles.show', ['id' => $id]);
     }
 }

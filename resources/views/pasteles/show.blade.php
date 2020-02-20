@@ -1,7 +1,11 @@
 @extends('layout')
 
+@section('title',"Pastel #{$id}")
+
 @section('content')
-    @foreach($pasteles as $pastel)
-        <h1>Lista de pasteles</h1>
-    {{"$pastel"}} <br>
-    @endforeach
+
+    <h1>Pastel #{{$id}}</h1>
+    Mostrando el detalle del  {{$id}}
+
+@endsection
+

@@ -12,10 +12,11 @@ class ArticlesSeeder extends Seeder
     public function run()
     {
         for($i = 0; $i<100; $i++){
+            
             Article::Create([
-                'titulo'=> 'Viajes gratis China'.$i,
-                'cuerpo'=> 'Bla bla frasre profunda blah blah blah...',
-                'autor'=> 'Por Susanita Fuuuuu'
+                'titulo'=> " $i Viajes gratis a un sitio",
+                'cuerpo'=> "Bla bla frasre profunda blah blah blah...",
+                'autor'=>  "Por Susanita Fuuuuu"
             ]);
         }
     }

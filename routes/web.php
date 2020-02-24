@@ -25,7 +25,10 @@ Route::get('/pasteles', 'PastelController@index');
 
 Route::get('/pasteles/{id}', 'PastelController@show')->where('id', '[0-9 ]+');
 
-Route::get('articulos', function(){
-    $articulos=['articulos'=>Article::all()];
-    return view('articulos.index', $articulos);
-});
+Route::get('articulos', 'ArticlesController@index');
+
+Route::get('/articulos/{id}', 'ArticlesController@show');//->where('id', '[0-9]' + ->name('todos los articulos') el nombre ha de ser único
+
+// Route::get('articulos', function(){
+//     return view('articulos.index', ['articulos'=>Article::all()]);
+// });

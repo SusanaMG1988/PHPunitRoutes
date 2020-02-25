@@ -2,12 +2,11 @@
 
     @section('content')
         <h1>Listado de Articulos</h1>
+    
         <ul style="list-style: none;">
         @foreach($articulos as $articulo)
-           <li>{{$articulo->id}}</li>
-           <li>Título:{{$articulo->titulo}}</li>
-           <li>Cuerpo:{{$articulo->cuerpo}}</li>
-           <li>Autor:{{$articulo->autor}}</li>
+           <li>{{$articulo->titulo}}</li>
+         
            <a href={{action('ArticlesController@show',['id'=>$articulo->id])}}>Ver detalle</a> 
             {{-- otras formas de hacerlo:
              dentro de href asset("articles/$articulo->id");

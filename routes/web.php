@@ -27,8 +27,10 @@ Route::get('/pasteles/{id}', 'PastelController@show')->where('id', '[0-9 ]+');
 
 Route::get('articulos', 'ArticlesController@index');
 
-Route::get('/articulos/{id}', 'ArticlesController@show');//->where('id', '[0-9]' + ->name('todos los articulos') el nombre ha de ser único
+Route::get('/articulos/{id}', 'ArticlesController@show')->where('id', '[0-9]+')->name('todos_articulos'); //el nombre ha de ser único
 
+Route::get('/articulos/crear', 'ArticlesController@crear')->name("articulo_nuevo");
+Route::post('/articulos/store','ArticlesController@store')->name("store_articulo");
 // Route::get('articulos', function(){
 //     return view('articulos.index', ['articulos'=>Article::all()]);
 // });

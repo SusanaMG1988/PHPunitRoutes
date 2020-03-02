@@ -4,7 +4,7 @@ use App\Article;
 use App\Http\Controllers\ArticlesController;
 
 Route::get('/', function (){
-    return view('home');
+    return view('inicio');
 })->name('inicio');
 
 Route::get('/usuarios', 'UserController@index')->name('users');
@@ -39,3 +39,7 @@ Route::post('/articulos/store','ArticlesController@store')->name("store_articulo
 Route::get('/articulos/update/{id}', 'ArticlesController@update')->name('modificar_articulo');
 Route::post('/articulos/update/{id}', 'ArticlesController@store_update');
 Route::get('/articulos/delete/{id}', 'ArticlesController@delete')->name('eliminar_articulo');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class PastelController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index(){
          $pasteles = ['tiramisu', 'brouny', 'croasan'];
 

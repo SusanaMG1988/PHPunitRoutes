@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class WelcomeController extends Controller
 {
     //
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function __invoke($name, $nickname = null) {
         if($nickname) {
             return "Bienvenido {$name}, tu apodo es {$nickname}";

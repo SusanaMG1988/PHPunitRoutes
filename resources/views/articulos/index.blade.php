@@ -23,4 +23,9 @@
         </ul>
     @endsection
 
+    @section('sidebar')
+    @parent
+       <a href={{route('articulo_nuevo')}}>Crear nueva entrada</a>
+    @endsection
+
    

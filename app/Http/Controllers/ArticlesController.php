@@ -21,12 +21,12 @@ class ArticlesController extends Controller
     }
 
     public function store(Request $request){
+
         $validateData = $request->validate([
-            'titulo'=>'required | unique:articles',
+            'titulo'=>'required|unique:articles|min:6',
             'cuerpo'=>'required',
             'autor'=>'required'
-            
-
+        
         ]);
 
         
@@ -53,5 +53,32 @@ class ArticlesController extends Controller
         //return redirect()->route('todos_articulos');
         return redirect('/articulos');
     }
+    public function update($id){
 
+        $articulo = Article::find($id);
+        return view('articulos.update', ['articulo'=>$articulo]);
+
+    }
+    public function store_update(request $request, $id){
+
+        $validateData = $request->validate([
+            'titulo' => 'required|unique:articles|max:12|min:6',
+            'cuerpo' => 'required',
+            'autor' => 'required'
+        ]);
+
+        $articulo = Article::find($id);
+        $articulo->titulo = $request->titulo;
+        $articulo->cuerpo = $request->cuerpo;
+        $articulo->autor = $request->autor;
+
+        $articulo->save();
+
+    }
+
+    public function delete($id){
+
+
+
+    }
 }

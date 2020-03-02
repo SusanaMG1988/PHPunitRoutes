@@ -1,6 +1,7 @@
 <?php
 
 use App\Article;
+use App\Http\Controllers\ArticlesController;
 
 Route::get('/', function (){
     return view('home');
@@ -34,3 +35,7 @@ Route::post('/articulos/store','ArticlesController@store')->name("store_articulo
 // Route::get('articulos', function(){
 //     return view('articulos.index', ['articulos'=>Article::all()]);
 // });
+
+Route::get('/articulos/update/{id}', 'ArticlesController@update')->name('modificar_articulo');
+Route::post('/articulos/update/{id}', 'ArticlesController@store_update');
+Route::get('/articulos/delete/{id}', 'ArticlesController@delete')->name('eliminar_articulo');

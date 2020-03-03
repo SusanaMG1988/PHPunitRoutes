@@ -9,7 +9,7 @@ class ArticlesController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-    
+
     public function index(){
         return view('articulos.index', ['articulos'=>Article::all()]);
     }
@@ -77,12 +77,15 @@ class ArticlesController extends Controller
         $articulo->autor = $request->autor;
 
         $articulo->save();
+        return redirect('/articulos');
 
     }
 
     public function delete($id){
 
-
+        $articulo = Article::find($id);
+        $articulo->delete();
+        return redirect('/articulos');
 
     }
 }
